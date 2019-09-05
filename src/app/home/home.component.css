@@ -1,0 +1,36 @@
+.courses-panel {
+  padding: 1.525em;
+    max-width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+::ng-deep .mat-tab-body-content{
+  overflow: inherit !important;
+}
+.overlay-tab-icon {
+  margin-right: 8px;
+}
+.overlay-action {
+  justify-content: flex-end;
+  display: flex;
+  flex-direction: row;
+  margin-top: 0.75em;
+  margin-right: 0.25em;
+}
+.mat-tab-group {
+  border-top: 0.065em solid blue;
+  border-bottom: 0.16em solid blue;
+}
+
+::ng-deep .mat-tab-body, .mat-tab-body-active  {
+  padding: .50em 0em 0.50em 0em;
+}
+/* .mat-tab-label {
+  min-width: 20px !important;
+  flex: 1 !important;
+  padding: 0 !important;
+} */
+button {
+  margin-right: 0.75em;
+}

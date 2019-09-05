@@ -1,0 +1,54 @@
+
+<div class="courses-panel">
+    <mat-button-toggle-group name="fontStyle" value="RFIClosed" style="width: 180px;" aria-label="Font Style">
+        <mat-button-toggle value="RFIOpen" (click)='updateRFI()' selected>RFIOpen</mat-button-toggle>
+        <mat-button-toggle value="RFIClosed" (click)='updateRFI()'>RFIClosed</mat-button-toggle>
+      </mat-button-toggle-group>
+    <overview-subtitle [status]="status" [lastUpdate]="lastUpdate"></overview-subtitle>
+
+    <mat-tab-group mat-stretch-tabs animationDuration="2000ms">
+      <mat-tab>
+        <ng-template mat-tab-label>
+          <mat-icon class="overlay-tab-icon" color="primary">view_quilt</mat-icon>
+          EXCEPTION OVERVIEW
+        </ng-template>
+        <ng-template matTabContent>
+          <overlay-content1></overlay-content1>
+            <courses-card-list
+            [courses]="beginnerCourses$ | async">
+    </courses-card-list>
+        </ng-template>
+
+      </mat-tab>
+        <mat-tab>
+          <ng-template mat-tab-label>
+            <mat-icon class="overlay-tab-icon" color="primary">chat</mat-icon>
+            COMMUNICATION
+          </ng-template>
+          <ng-template matTabContent>
+              <overlay-content2 [RFIClosed]="RFIClosed"></overlay-content2>
+              <courses-card-list
+              [courses]="advancedCourses$ | async"
+
+      ></courses-card-list>
+          </ng-template>
+        </mat-tab>
+
+        <mat-tab>
+          <ng-template mat-tab-label>
+            <mat-icon class="overlay-tab-icon" color="primary">playlist_add_check</mat-icon>
+            AUDIT TRIAL
+          </ng-template>
+          <overlay-content3></overlay-content3>
+        </mat-tab>
+
+    </mat-tab-group>
+
+<div class="overlay-action">
+    <button mat-raised-button color="primary" *ngIf="RFIClosed">REOPEN</button>
+    <button mat-raised-button color="primary" *ngIf="!RFIClosed">NO BREACH</button>
+    <button mat-raised-button color="accent" *ngIf="!RFIClosed">BREACH</button>
+</div>
+
+</div>
+
