@@ -26,6 +26,7 @@ export class Database { // {{{
   styleUrls: ['./mat-pagination-demo.component.css']
 })
 export class MatPaginationDemoComponent implements OnInit {
+  subscriber: any[];
   lessons : any[];
   length = 0;
     pageIndex = 0;
@@ -38,14 +39,14 @@ export class MatPaginationDemoComponent implements OnInit {
   constructor(private demoService: MatDemoService, private cdRef: ChangeDetectorRef) {  }
 
   ngOnInit() {
-    // this.demoService.getElements().subscribe(data=>{
-    //   console.log(data);
-    //   this.elements= data.elements;
-    //   this.length = this.elements.length;
-    //   this.database=new Database(this.elements);
-    //   this.dataSource = new MyDataSource(this.database, this.paginator);
-    //   this.cdRef.detectChanges();
-    // });
+    this.demoService.getElements().subscribe(data=>{
+      console.log(data);
+      this.subscriber= data;
+      console.log(this.subscriber);
+      // this.database=new Database(this.subscriber);
+      // this.dataSource = new MyDataSource(this.database, this.paginator);
+      // this.cdRef.detectChanges();
+    });
 
     this.demoService.getLessons(
       '1',

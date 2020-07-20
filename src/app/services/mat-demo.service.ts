@@ -36,4 +36,25 @@ export class MatDemoService {
       );
       }
 
+      getSubscribers(
+        courseId: string,
+        filter: string,
+        sortOrder: string,
+        pageNumber: string,
+        pageSize: string
+      ): Observable<any> {
+        console.log('subscriber server call');
+        return this.http.get('http://localhost:3000/subscribers', {
+          params: new HttpParams()
+              .set('courseId', courseId.toString())
+              .set('filter', filter)
+              .set('sortOrder', sortOrder)
+              .set('pageNumber', pageNumber.toString())
+              .set('pageSize', pageSize.toString())
+      })
+      .pipe(
+          map(res =>  res['payload'])
+      );
+      }
+
 }

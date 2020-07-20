@@ -39,7 +39,12 @@ $mat-custom-theme: (
                 A700: $light-primary-text,
         )
 );
+::root {
+  font-size: 16px;
+}
+html {
 
+}
 // Define a theme.
 $primary: mat-palette($mat-custom-theme);
 $accent:  mat-palette($mat-pink, A200, A100, A400);
